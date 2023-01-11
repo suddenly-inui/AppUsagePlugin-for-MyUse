@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.awareframework.android.sensor.aware_appusage" xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <application>
+    <service
+        android:name=".AppusageSensor"
+        android:exported="true" />
+
+    <receiver android:name=".AppusageSensor$AppusageSensorBroadcastReceiver"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="com.aware.android.sensor.aware_appusage.SENSOR_START" />
+            <action android:name="com.aware.android.sensor.aware_appusage.SENSOR_STOP" />
+            <action android:name="com.aware.android.sensor.SENSOR_START" />
+            <action android:name="com.aware.android.sensor.SENSOR_STOP" />
+        </intent-filter>
+    </receiver>
+</application>
+</manifest>
