@@ -123,7 +123,7 @@ class AppusageSensor : AwareSensor(){
         super.onStartCommand(intent, flags, startId)
 
         val openIntent = Intent(this, AppusageSensor::class.java).let {
-            PendingIntent.getActivity(this, 0, it, 0)
+            PendingIntent.getActivity(this, 0, it, PendingIntent.FLAG_IMMUTABLE)
         }
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_aware_accessibility_white)
